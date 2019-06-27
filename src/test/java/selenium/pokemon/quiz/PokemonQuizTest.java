@@ -1,6 +1,7 @@
 package selenium.pokemon.quiz;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import org.junit.Assert;
 import selenium.pokemon.quiz.dtos.Pokemon;
 import selenium.pokemon.quiz.pages.PokemonQuizPage;
 import org.junit.AfterClass;
@@ -12,7 +13,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import selenium.pokemon.quiz.utils.FileHandler;
 import selenium.pokemon.quiz.utils.JsonHandler;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,7 +33,7 @@ public class PokemonQuizTest {
 
     @AfterClass
     public static void closeBrowser(){
-//        driver.close();
+        driver.close();
     }
 
     private static void initializeDriver(){
@@ -54,8 +54,10 @@ public class PokemonQuizTest {
         driver.get(url);
         PokemonQuizPage pokemonQuizPage = new PokemonQuizPage(driver);
         pokemonQuizPage.start();
-        List<String> pokemon = pokeNameConflictService.sortPokemonNamesToAvoidConflicts(pokemonNames.subList(initialId-1, finalId));
-        pokemonQuizPage.setPokemons(pokemon);
+        List<String> genPokemonNames =
+                pokeNameConflictService.sortPokemonNamesToAvoidConflicts(pokemonNames.subList(initialId-1, finalId));
+        pokemonQuizPage.setPokemons(genPokemonNames);
+        Assert.assertEquals((Integer) 100, pokemonQuizPage.getResultPoints());
     }
 
     @Test

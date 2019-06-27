@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -23,6 +25,12 @@ public class PokemonQuizPage {
     @FindBy(id = "gameinput")
     WebElement input;
 
+    @FindBy(id = "userPct")
+    WebElement score;
+
+    @FindBy(id = "gameOverMsg")
+    WebElement gameOverMsg;
+
     public void start(){
         startButton.click();
     }
@@ -34,5 +42,10 @@ public class PokemonQuizPage {
     private void clearAndSetPokemon(String pokemon){
         input.clear();
         input.sendKeys(pokemon);
+    }
+
+    public Integer getResultPoints(){
+        new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(gameOverMsg));
+        return Integer.parseInt(score.getText());
     }
 }
