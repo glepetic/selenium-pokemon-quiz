@@ -2,6 +2,10 @@ package selenium.pokemon.quiz;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import org.junit.Assert;
+>>>>>>> 056ef8f... 4553RT5 100% SC0R3
 import selenium.pokemon.quiz.dtos.Pokemon;
 import selenium.pokemon.quiz.pages.PokemonQuizPage;
 =======
@@ -17,6 +21,7 @@ import selenium.pokemon.quiz.utils.FileHandler;
 import selenium.pokemon.quiz.utils.JsonHandler;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 import java.util.Arrays;
@@ -29,6 +34,8 @@ import selenium.pokemon.quiz.utils.Sorter;
 >>>>>>> bc3f83e... Make sort for conflicts in pokemon names more efficient
 =======
 >>>>>>> f90bb26... P4R4 T0D45 L45 G3N3R4C10N35
+=======
+>>>>>>> 056ef8f... 4553RT5 100% SC0R3
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,7 +57,11 @@ public class PokemonQuizTest {
     @AfterClass
     public static void closeBrowser(){
 <<<<<<< HEAD
+<<<<<<< HEAD
 //        driver.close();
+=======
+        driver.close();
+>>>>>>> 056ef8f... 4553RT5 100% SC0R3
     }
 
     private static void initializeDriver(){
@@ -81,6 +92,7 @@ public class PokemonQuizTest {
         PokemonQuizPage pokemonQuizPage = new PokemonQuizPage(driver);
         pokemonQuizPage.start();
 <<<<<<< HEAD
+<<<<<<< HEAD
         List<String> pokemon = pokeNameConflictService.sortPokemonNamesToAvoidConflicts(pokemonNames.subList(initialId-1, finalId));
         pokemonQuizPage.setPokemons(pokemon);
 =======
@@ -107,6 +119,12 @@ public class PokemonQuizTest {
         completePokemonQuiz(pokemonQuizBaseUrl + "g/pokemon",1,151);
 =======
         pokemonQuizPage.setPokemons(pokemonNames.subList(initialId-1,finalId));
+=======
+        List<String> genPokemonNames =
+                pokeNameConflictService.sortPokemonNamesToAvoidConflicts(pokemonNames.subList(initialId-1, finalId));
+        pokemonQuizPage.setPokemons(genPokemonNames);
+        Assert.assertEquals((Integer) 100, pokemonQuizPage.getResultPoints());
+>>>>>>> 056ef8f... 4553RT5 100% SC0R3
     }
 
     @Test
