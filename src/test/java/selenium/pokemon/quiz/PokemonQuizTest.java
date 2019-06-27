@@ -21,6 +21,7 @@ public class PokemonQuizTest {
 
     private static WebDriver driver;
     private static List<String> pokemonNames;
+    private PokeNameConflictService pokeNameConflictService = new PokeNameConflictService();
 
     @BeforeClass
     public static void openBrowser(){
@@ -50,6 +51,17 @@ public class PokemonQuizTest {
         driver.manage().window().maximize();
     }
 
+<<<<<<< HEAD
+=======
+    private void completePokemonQuiz(String url, Integer initialId, Integer finalId){
+        driver.get(url);
+        PokemonQuizPage pokemonQuizPage = new PokemonQuizPage(driver);
+        pokemonQuizPage.start();
+        List<String> pokemon = pokeNameConflictService.sortPokemonNamesToAvoidConflicts(pokemonNames.subList(initialId-1, finalId));
+        pokemonQuizPage.setPokemons(pokemon);
+    }
+
+>>>>>>> dcdb713... Fix for names with conflict
     @Test
     public void testPoke(){
         driver.get("https://www.sporcle.com/games/g/pokemon");
