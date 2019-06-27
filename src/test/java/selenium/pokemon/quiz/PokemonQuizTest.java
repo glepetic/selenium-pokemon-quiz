@@ -13,7 +13,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import selenium.pokemon.quiz.utils.FileHandler;
 import selenium.pokemon.quiz.utils.JsonHandler;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,11 +49,45 @@ public class PokemonQuizTest {
         driver.manage().window().maximize();
     }
 
+    private void completePokemonQuiz(String url, Integer initialId, Integer finalId){
+        driver.get(url);
+        PokemonQuizPage pokemonQuizPage = new PokemonQuizPage(driver);
+        pokemonQuizPage.start();
+        pokemonQuizPage.setPokemons(pokemonNames.subList(initialId-1,finalId));
+    }
+
     @Test
     public void testPoke(){
-        driver.get("https://www.sporcle.com/games/g/pokemon");
-        PokemonQuizPage pokemon1GenPage = new PokemonQuizPage(driver);
-        pokemon1GenPage.start();
-        pokemon1GenPage.setPokemons(Arrays.asList("pikachu","raichu"));
+        completePokemonQuiz("https://www.sporcle.com/games/g/pokemon",1,151);
+    }
+
+    @Test
+    public void testPokeGen2(){
+        completePokemonQuiz("https://www.sporcle.com/games/g/pokemongen2",152,251);
+    }
+
+    @Test
+    public void testPokeGen3(){
+        completePokemonQuiz("https://www.sporcle.com/games/g/pokemongen3",252,386);
+    }
+
+    @Test
+    public void testPokeGen4(){
+        completePokemonQuiz("https://www.sporcle.com/games/g/pokemongen4",387,493);
+    }
+
+    @Test
+    public void testPokeGen5(){
+        completePokemonQuiz("https://www.sporcle.com/games/BluePikmin/pokemongen5",494,649);
+    }
+
+    @Test
+    public void testPokeGen6(){
+        completePokemonQuiz("https://www.sporcle.com/games/dertswa687o/pokemon-gen-vi",650,721);
+    }
+
+    @Test
+    public void testPokeGen7(){
+        completePokemonQuiz("https://www.sporcle.com/games/dertswa687o/pokemon-gen-vii",722,802);
     }
 }
