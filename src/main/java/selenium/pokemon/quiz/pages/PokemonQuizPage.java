@@ -20,16 +20,16 @@ public class PokemonQuizPage {
     }
 
     @FindBy(className = "button-wrapper")
-    WebElement startButton;
+    private WebElement startButton;
 
     @FindBy(id = "gameinput")
-    WebElement input;
+    private WebElement input;
 
     @FindBy(id = "userPct")
-    WebElement score;
+    private WebElement score;
 
     @FindBy(id = "gameOverMsg")
-    WebElement gameOverMsg;
+    private WebElement gameOverMsg;
 
     public void start(){
         startButton.click();
