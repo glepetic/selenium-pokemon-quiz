@@ -12,8 +12,13 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import selenium.pokemon.quiz.utils.FileHandler;
 import selenium.pokemon.quiz.utils.JsonHandler;
+<<<<<<< HEAD
 
 import java.util.Arrays;
+=======
+import selenium.pokemon.quiz.utils.Sorter;
+
+>>>>>>> bc3f83e... Make sort for conflicts in pokemon names more efficient
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,7 +26,7 @@ public class PokemonQuizTest {
 
     private static WebDriver driver;
     private static List<String> pokemonNames;
-    private PokeNameConflictService pokeNameConflictService = new PokeNameConflictService();
+    private Sorter sorter = new Sorter();
 
     @BeforeClass
     public static void openBrowser(){
@@ -52,6 +57,7 @@ public class PokemonQuizTest {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     private void completePokemonQuiz(String url, Integer initialId, Integer finalId){
         driver.get(url);
@@ -59,6 +65,16 @@ public class PokemonQuizTest {
         pokemonQuizPage.start();
         List<String> pokemon = pokeNameConflictService.sortPokemonNamesToAvoidConflicts(pokemonNames.subList(initialId-1, finalId));
         pokemonQuizPage.setPokemons(pokemon);
+=======
+    private void completePokemonQuiz(String url, Integer initialId, Integer finalId) {
+        driver.get(url);
+        PokemonQuizPage pokemonQuizPage = new PokemonQuizPage(driver);
+        pokemonQuizPage.start();
+        List<String> genPokemonNames =
+                sorter.sortByNameLength(pokemonNames.subList(initialId - 1, finalId));
+        pokemonQuizPage.setPokemons(genPokemonNames);
+        Assert.assertEquals((Integer) 100, pokemonQuizPage.getResultPoints());
+>>>>>>> bc3f83e... Make sort for conflicts in pokemon names more efficient
     }
 
 >>>>>>> dcdb713... Fix for names with conflict
