@@ -1,6 +1,6 @@
-package com.despegar.jav.tests;
+package selenium.pokemon.quiz;
 
-import com.despegar.jav.pages.Pokemon1GenPage;
+import selenium.pokemon.quiz.pages.PokemonQuizPage;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -11,13 +11,13 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Arrays;
 
-public class Pokemon1GenTest {
+public class PokemonQuizTest {
 
     private static WebDriver driver;
 
     @BeforeClass
     public static void openBrowser(){
-        System.setProperty("webdriver.chrome.driver", Pokemon1GenTest.class.getClassLoader()
+        System.setProperty("webdriver.chrome.driver", PokemonQuizTest.class.getClassLoader()
                 .getResource("drivers/chromedriver_linux64").getPath());
 
         ChromeOptions options = new ChromeOptions();
@@ -38,7 +38,7 @@ public class Pokemon1GenTest {
     @Test
     public void testPoke(){
         driver.get("https://www.sporcle.com/games/g/pokemon");
-        Pokemon1GenPage pokemon1GenPage = new Pokemon1GenPage(driver);
+        PokemonQuizPage pokemon1GenPage = new PokemonQuizPage(driver);
         pokemon1GenPage.start();
         pokemon1GenPage.setPokemons(Arrays.asList("pikachu","raichu"));
     }
