@@ -37,6 +37,11 @@ public class PokemonQuizPage {
     }
 
     public void setPokemons(List<String> pokemons){
-        pokemons.forEach(input::sendKeys);
+        pokemons.forEach(this::clearAndSetPokemon);
+    }
+
+    private void clearAndSetPokemon(String pokemon){
+        input.clear();
+        input.sendKeys(pokemon);
     }
 }

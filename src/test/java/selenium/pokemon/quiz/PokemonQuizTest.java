@@ -18,6 +18,7 @@ import selenium.pokemon.quiz.utils.JsonHandler;
 <<<<<<< HEAD
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 import java.util.Arrays;
 =======
 =======
@@ -26,6 +27,8 @@ import selenium.pokemon.quiz.utils.SeleniumUtils;
 import selenium.pokemon.quiz.utils.Sorter;
 
 >>>>>>> bc3f83e... Make sort for conflicts in pokemon names more efficient
+=======
+>>>>>>> f90bb26... P4R4 T0D45 L45 G3N3R4C10N35
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -69,11 +72,15 @@ public class PokemonQuizTest {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> f90bb26... P4R4 T0D45 L45 G3N3R4C10N35
     private void completePokemonQuiz(String url, Integer initialId, Integer finalId){
         driver.get(url);
         PokemonQuizPage pokemonQuizPage = new PokemonQuizPage(driver);
         pokemonQuizPage.start();
+<<<<<<< HEAD
         List<String> pokemon = pokeNameConflictService.sortPokemonNamesToAvoidConflicts(pokemonNames.subList(initialId-1, finalId));
         pokemonQuizPage.setPokemons(pokemon);
 =======
@@ -98,37 +105,69 @@ public class PokemonQuizTest {
         pokemon1GenPage.setPokemons(Arrays.asList("pikachu","raichu"));
 =======
         completePokemonQuiz(pokemonQuizBaseUrl + "g/pokemon",1,151);
+=======
+        pokemonQuizPage.setPokemons(pokemonNames.subList(initialId-1,finalId));
+    }
+
+    @Test
+    public void testPoke(){
+        completePokemonQuiz("https://www.sporcle.com/games/g/pokemon",1,151);
+>>>>>>> f90bb26... P4R4 T0D45 L45 G3N3R4C10N35
     }
 
     @Test
     public void testPokeGen2(){
+<<<<<<< HEAD
         completePokemonQuiz(pokemonQuizBaseUrl + "g/pokemongen2",152,251);
+=======
+        completePokemonQuiz("https://www.sporcle.com/games/g/pokemongen2",152,251);
+>>>>>>> f90bb26... P4R4 T0D45 L45 G3N3R4C10N35
     }
 
     @Test
     public void testPokeGen3(){
+<<<<<<< HEAD
         completePokemonQuiz(pokemonQuizBaseUrl + "g/pokemongen3",252,386);
+=======
+        completePokemonQuiz("https://www.sporcle.com/games/g/pokemongen3",252,386);
+>>>>>>> f90bb26... P4R4 T0D45 L45 G3N3R4C10N35
     }
 
     @Test
     public void testPokeGen4(){
+<<<<<<< HEAD
         completePokemonQuiz(pokemonQuizBaseUrl + "g/pokemongen4",387,493);
+=======
+        completePokemonQuiz("https://www.sporcle.com/games/g/pokemongen4",387,493);
+>>>>>>> f90bb26... P4R4 T0D45 L45 G3N3R4C10N35
     }
 
     @Test
     public void testPokeGen5(){
+<<<<<<< HEAD
         completePokemonQuiz(pokemonQuizBaseUrl + "BluePikmin/pokemongen5",494,649);
+=======
+        completePokemonQuiz("https://www.sporcle.com/games/BluePikmin/pokemongen5",494,649);
+>>>>>>> f90bb26... P4R4 T0D45 L45 G3N3R4C10N35
     }
 
     @Test
     public void testPokeGen6(){
+<<<<<<< HEAD
         completePokemonQuiz(pokemonQuizBaseUrl + "dertswa687o/pokemon-gen-vi",650,721);
+=======
+        completePokemonQuiz("https://www.sporcle.com/games/dertswa687o/pokemon-gen-vi",650,721);
+>>>>>>> f90bb26... P4R4 T0D45 L45 G3N3R4C10N35
     }
 
     @Test
     public void testPokeGen7(){
+<<<<<<< HEAD
         completePokemonQuiz(pokemonQuizBaseUrl + "dertswa687o/pokemon-gen-vii",722,802);
 >>>>>>> c1482ac... Remove unnecessary stuff. Add os distinction for driver
+=======
+        completePokemonQuiz("https://www.sporcle.com/games/dertswa687o/pokemon-gen-vii",722,802);
+>>>>>>> f90bb26... P4R4 T0D45 L45 G3N3R4C10N35
     }
 
 }
