@@ -18,11 +18,20 @@ public class PokemonQuizPage {
     }
 
     @FindBy(className = "button-wrapper")
-    WebElement startButton;
+    private WebElement startButton;
 
     @FindBy(id = "gameinput")
-    WebElement input;
+    private WebElement input;
 
+<<<<<<< HEAD
+=======
+    @FindBy(id = "userPct")
+    private WebElement score;
+
+    @FindBy(id = "gameOverMsg")
+    private WebElement gameOverMsg;
+
+>>>>>>> 22d22db... Change readme
     public void start(){
         startButton.click();
     }
