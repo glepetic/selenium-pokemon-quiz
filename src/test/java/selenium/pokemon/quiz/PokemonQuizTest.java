@@ -20,6 +20,7 @@ public class PokemonQuizTest {
 
     private static WebDriver driver;
     private static List<String> pokemonNames;
+    private PokeNameConflictService pokeNameConflictService = new PokeNameConflictService();
 
     @BeforeClass
     public static void openBrowser(){
@@ -53,7 +54,8 @@ public class PokemonQuizTest {
         driver.get(url);
         PokemonQuizPage pokemonQuizPage = new PokemonQuizPage(driver);
         pokemonQuizPage.start();
-        pokemonQuizPage.setPokemons(pokemonNames.subList(initialId-1,finalId));
+        List<String> pokemon = pokeNameConflictService.sortPokemonNamesToAvoidConflicts(pokemonNames.subList(initialId-1, finalId));
+        pokemonQuizPage.setPokemons(pokemon);
     }
 
     @Test
