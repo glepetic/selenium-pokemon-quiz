@@ -24,6 +24,15 @@ public class PokemonQuizPage {
 
     @FindBy(id = "gameinput")
     private WebElement input;
+<<<<<<< HEAD
+=======
+
+    @FindBy(id = "userPct")
+    private WebElement score;
+
+    @FindBy(id = "gameOverMsg")
+    private WebElement gameOverMsg;
+>>>>>>> 7f354f3b15ecb0a88066e048c42fbe799b2439ef
 
 <<<<<<< HEAD
 <<<<<<< HEAD
