@@ -24,34 +24,13 @@ public class PokemonQuizPage {
 
     @FindBy(id = "gameinput")
     private WebElement input;
-<<<<<<< HEAD
-=======
 
     @FindBy(id = "userPct")
     private WebElement score;
 
     @FindBy(id = "gameOverMsg")
     private WebElement gameOverMsg;
->>>>>>> 7f354f3b15ecb0a88066e048c42fbe799b2439ef
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    @FindBy(id = "userPct")
-    private WebElement score;
-
-    @FindBy(id = "gameOverMsg")
-    private WebElement gameOverMsg;
-
->>>>>>> 22d22db... Change readme
-=======
-    @FindBy(id = "userPct")
-    WebElement score;
-
-    @FindBy(id = "gameOverMsg")
-    WebElement gameOverMsg;
-
->>>>>>> 056ef8f... 4553RT5 100% SC0R3
     public void start(){
         startButton.click();
     }
